@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/stylesheets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</head>
+</br>
+<div class="ui raised very padded text container segment">
+<a href="/" class="ui icon button">
+	 <i class="home icon"></i>
+</a>
+<h1 class="title">Hello World!</h1>
+    <p>In this section you will learn how to make a program that will print out a simple statement: "Hello Word!"</p>
+	<div class="ui horizontal divider">The Main Function</div>
+	
+    <p>Let's begin by building the most basic C++ program:</p>
+	<pre><code>int main(){
+  // your code here
+  return 0;
+}</code></pre>
+<p>
+	When C++ code is run, code is not simply ran from the first line of the file to the last. Code begins in the  <span><code>main</code></span> <span class="tooltip" style="color:red" data-tooltip="A function is a very basic tool in programming languages that allows the developer to easily call code that is used in many places without copying it over and over again" data-position="top center">function</span>.
+</p>
+<p>
+	There are 3 parts to a function:
+	<div class="ui bulleted list">
+		<div class="item">
+			Name - What will be used to call the function
+		</div>
+		<div class="item">
+			Return Type - The datatype that will be returned when the function is called
+		</div>
+		<div class="item">
+			Definition - The code inside of the <span><code>{}</code></span> that says what the function will do when it is called
+		</div>
+	</div>
+	There is 1 more part to a function but we will cover that later.
+</p>
+<p>
+	In the code snippet above, the return type is an <span class="tooltip" style="color:red" data-tooltip="A datatype that represents an Integer" data-position="top center"><span><code>int</code></span></span> and the name of the function is <span><code>main</code></span>. Another crucial part of our main function is a <span><code>return</code></span> statement. Remember, since we defined our function's return type to be an <span><code>int</code><span> we need to make sure that is the only type of data we return. For our purposes, it does not matter what the main function returns so long as it is an <span><code>int</code><span>. I chose a 0.
+</p>
+<div class="ui horizontal divider">Printing</div>
+<p>
+	Let's make our empty program output: Hello World!
+	</p>
+	<p>
+		In order to do this we need to add a <span class="tooltip" style="color:red" data-tooltip="A resource that has useful tools to add extra functionality to our project" data-position="top center">library</span> called <span><code>iostream</code><span>. This library gives us the ability to interact with the console. To add a library to your C++ project you need to use <span><code>#include &lt;<i>name of the library</i>&gt;</code><span>.
+</p>
+<p>
+	For outputting data to the console we will use <span><code>cout</code></span>. This object is a <span class="tooltip" style="color:red" data-tooltip="a sequence of characters that we can either read from or write to" data-position="top right">stream</span>. <span><code>cout</code><span> is an example of an output stream which means we are restricted to only writing to the stream.
+</p>
+<p>
+	Another statement we will use when implementing this program is <span><code>endl</code></span>. This statement ends the current line (The equivilant of pressing the enter key when typing a document).
+</p>
+<p>
+	Let's implement it:
+</p>
+<pre><code>#include &lt;iostream&gt;
+	
+int main(){
+  std::cout << "Hello World!" << std::endl;
+  return 0;
+}</code></pre>
+<p>
+	There's a couple things we haven't covered yet that you may be confused in the code snippet.
+</p>
+<p>
+	First off, what does the <span><code>std::</code></span> before the <span><code>cout</code></span> do? This is specifying the <span class="tooltip" style="color:red" data-tooltip="used to organize code so that there aren't multiple things with the same name" data-position="top left">namespace</span>. The <span><code>std</code></span> namespace is the C++ Standard Library which we will be using a lot. This is saying I want to use <span><code>cout</code><span> specifically, the one that is defined in the C++ Standard Library.
+</p>
+<div class="ui tiny message">
+	Some other tutorials may tell you to put <span><code>using namespace std;</code></span> at the top of your program in order to not have to write <span><code>std::</code></span> before every statement we use from the C++ Standard Library. While in this program it wouldn't cause any issues, it is not a good practice to do so for reasons which will become clear later.
+</div>
+<p>
+	What is <span><code>&lt;&lt;</code></span>? This is an <span class="tooltip" style="color:red" data-tooltip="a symbol that is used to denote an action" data-position="top left">operator</span> that says that we want <span><code>"Hello World!"</code></span> to be inserted into the <span><code>cout</code></span> stream.
+</p>
+<div class="ui horizontal divider">Conclusion</div>
+<div class="ui bulleted list">
+	<div class="item">
+		3 Parts to a function
+	</div>
+	<div class="item">
+		How to include a library
+	</div>
+	<div class="item">
+		What is a stream
+	</div>
+	<div class="item">
+		How to specify a namespace
+	</div>
+</div>
+</div>
+</br>
+</html>

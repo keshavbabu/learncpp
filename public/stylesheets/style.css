@@ -1,0 +1,24 @@
+h1{
+	text-align: center;
+}
+
+.tooltip:after{
+  word-wrap: break-word;
+  text-align: left;
+  white-space: pre-line;
+  width: max-content;
+  max-width: calc(100vw - 200px);
+}
+
+pre code{
+	background-color: #eee;
+	display: block;
+	padding: 20px;
+	border-radius: 5px;
+}
+
+span code{
+	background-color: #eee;
+	padding: 2px;
+	border-radius: 3px;
+}
