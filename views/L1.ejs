@@ -75,21 +75,48 @@ int main(){
 <p>
 	What is <span><code>&lt;&lt;</code></span>? This is an <span class="tooltip" style="color:red" data-tooltip="a symbol that is used to denote an action" data-position="top left">operator</span> that says that we want <span><code>"Hello World!"</code></span> to be inserted into the <span><code>cout</code></span> stream.
 </p>
-<div class="ui horizontal divider">Conclusion</div>
-<div class="ui bulleted list">
-	<div class="item">
-		3 Parts to a function
-	</div>
-	<div class="item">
-		How to include a library
-	</div>
-	<div class="item">
-		What is a stream
-	</div>
-	<div class="item">
-		How to specify a namespace
-	</div>
-</div>
+<div class="ui horizontal divider">Input</div>
+<p>
+	As we covered, streams can be used to write to the console. However they can also used to read from the console. This is used to get input from the user.
+</p>
+<p>
+	In order to read from the console we will not be able to use <span><code>cout</code></span>. This is because this is strictly an output stream. In order for us to have permission to read from the stream we will need an input stream. Luckily, this can be found in the same library that gave us <span><code>cout</code></span>. We will be using <span><code>cin</code></span>.
+</p>
+<p>
+	When receiving data from the user we will also need to store that data somewhere. In order to do this we will be using a <span class="tooltip" style="color:red" data-tooltip="something that can be used to store different types of data" data-position="top center">variable</span>. Variables can hold many different types of data but we will be using <span><code>int</code></span>.
+</p>
+<pre><code>#include &lt;iostream&gt;
+	
+int main(){
+  int x;
+  std::cin >> x;
+  return 0;
+}
+</code></pre>
+<p>
+	Our first line on the main function you can see that we are defining a variable named <span><code>x</code></span> which will hold an integer.
+</p>
+<p>
+	On the next line we have <span><code>cin</code><span> (also a part of the C++ Standard Library hence why we use the <span><code>std::</code></span>) which will put the input from the user into the variable <span><code>x</code></span>.
+</p>
+<p>
+	If you run this program you will see that it does nothing until you enter an integer into the terminal and press enter.
+</p>
+<p>
+	Lets combine what we just learned and create a program that reads an integer from the terminal, and then prints it back to the user:
+</p>
+<pre><code>#include &lt;iostream&gt;
+	
+int main(){
+  int x;
+  std::cin >> x;
+  std::cout << "Your number was " << x << std::endl;
+  return 0;
+}
+</code></pre>
+<p>
+	As you can see we can chain the <span><code><<</code><span> operator.
+</p>
 </div>
 </br>
 </html>

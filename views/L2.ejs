@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/stylesheets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</head>
+</br>
+<div class="ui raised very padded text container segment">
+<a href="/" class="ui icon button">
+	 <i class="home icon"></i>
+</a>
+<h1 class="title">Variables</h1>
+	<p>In this section you will learn how to create, assign, and use variables.</p>
+<div class="ui horizontal divider">Primitive Data Types</div>
+	<p>
+		In the last section, we used a variable to hold an integer that we received from the console by the user. However, variables can hold much more than just an integer.
+	</p>
+	<p>
+		These are the <span class="tooltip" style="color:red" data-tooltip="a set of types that are built-in to the language" data-position="top left">Primitive Data Types</span> that we will be dealing with:
+	</p>
+	<table class="ui small unstackable table">
+		<thead>
+			<tr>
+				<th>Type</th>
+				<th>Type Name</th>
+				<th>Example Value</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><span><code>int</code></span></td>
+				<td>Integer</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td><span><code>char</code></span></td>
+				<td>Character</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td><span><code>bool</code></span></td>
+				<td>Boolean (True or False)</td>
+				<td>true</td>
+			</tr>
+			<tr>
+				<td><span><code>double</code></span></td>
+				<td>Double Floating Point</td>
+				<td>2.5</td>
+			</tr>
+			<tr>
+				<td><span><code>void</code></span></td>
+				<td>Void</td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		There are a couple more primitive datatypes but for our purposes we will only be focusing on these 5. We will also be covering the <span><code>void</code></span> data type in a future section but it is important that you know it exists.
+	</p>
+	<p>
+		We define a variable by first writing the type and following it up with the name: <span><code>int x;</code></span>
+	</p>
+<div class="ui horizontal divider">Assigning Values</div>
+	<p>
+		A variable without any data is useless to us so let's explore how we can set a value to a variable.
+	</p>
+	<p>
+		We can assign it a value when it is created like so: <span><code>int x = 1;</code></span> or we can assign it a value later by first creating it: <span><code>int x;</code></span> and later assigning it a value: <span><code>x = 1;</code></span>
+	</p>
+	<p>
+		You might have noticed that I did not have <span><code>int</code></span> before my variable name when I was assigning it a value after I had already created it. This is because the only time you need to specify the data type is when you are creating it. Once a variable exists you must always refer to it by only its name.
+	</p>
+<div class="ui horizontal divider">Usage</div>
+	<p>
+		Let's use variables in our program. Let's first take  the code we had in the last section and make a few changes:
+	</p>
+<pre><code>#include &lt;iostream&gt;
+	
+int main(){
+  int x;
+  std::cin >> x;
+  int y = x;
+  x = 45;
+  std::cout << "x is " << x << std::endl;
+  std::cout << "y is " << y << std::endl;
+  return 0;
+}
+</code></pre>
+<p>
+	This code outlines a very important aspect of assignment. When the variable <span><code>y</code></span> is set equal to <span><code>x</code></span>, it is merely making a copy of the value that <span><code>x</code></span> holds and is not bound to <span><code>x</code></span> in any way. When <span><code>x</code></span> is reassigned on the next line, it does not affect the variable <span><code>y</code></span> in any way.
+</p>
+</div>
+</br>
+</html>
