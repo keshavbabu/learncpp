@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/stylesheets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</head>
+</br>
+<div class="ui raised very padded text container segment">
+<a href="/" class="ui icon button">
+	 <i class="home icon"></i>
+</a>
+<h1 class="title">Functions</h1>
+	<p>In this section you will learn how to create and use functions in your program</p>
+<div class="ui horizontal divider">Why</div>
+<p>
+	Functions are used to hold blocks of code that holds code that may need to be used multiple times in your program. It makes your code easier to read and also makes it easier to add functionality to your program in the future.
+</p>
+<div class="ui horizontal divider">The Function</div>
+<p>
+	In the first section we covered the 3 parts to a function:
+	
+	<div class="ui bulleted list">
+		<div class="item">
+			Name - What will be used to call the function
+		</div>
+		<div class="item">
+			Return Type - The datatype that will be returned when the function is called
+		</div>
+		<div class="item">
+			Definition - The code inside of the <span><code>{}</code></span> that says what the function will do when it is called
+		</div>
+	</div>
+	
+	let's use these 3 parts and build a function that prints something to the console:
+</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main(){
+  PrintToConsole();
+  return 0;
+}
+
+void PrintToConsole(){
+  std::cout << "I'm a function" << std::endl;
+}
+</pre></code>
+<p>
+	As you can see we created a function with the name "PrintToConsole". We had it return <span><code>void</code></span> meaning we won't need to return anything and we defined it inside the <span><code>{}</span></code> to print out "I'm a function" to the console.
+</p>
+<p>
+	However, if you try and compile it you'll get this error:
+</p>
+<pre><code>error: ‘PrintToConsole’ was not declared in this scope
+    4 |   PrintToConsole();
+      |   ^~~~~~~~~~~~~~
+</pre></code>
+<p>
+	This is because when the main function is being run it doesn't know that PrintToConsole exists since its define after it. The way we fix this issue is by altering our file to look like this:
+</p>
+<pre><code>#include &lt;iostream&gt;
+
+void PrintToConsole();
+	
+int main(){
+  PrintToConsole();
+  return 0;
+}
+
+void PrintToConsole(){
+  std::cout << "I'm a function" << std::endl;
+}
+</pre></code>
+<p>
+	This change allows our program to compile sucessfully and work as intended. We fixed it by declaring the function before the main. This lets the program know that the function exists but allows us to define what it actually does later in the program.
+</p>
+<div class="ui horizontal divider">Parameters</div>
+<p>
+	The 4th part of a function that was mentioned in the first section is called <span class="tooltip" style="color:red" data-tooltip="A part of the function that allows it to receive data from whatever is calling it" data-position="top left">parameters</span>.
+</p>
+<p>
+	Let's explore how we use parameters in a function called <span><code>Sum</span></code>. The function sum will have 2 integer parameters and return the result of the two integers being added together:
+</p>
+<pre><code>#include &lt;iostream&gt;
+
+void Sum(int a, int b);
+	
+int main(){
+  std::cout << Sum(1,2) << std::endl;
+  return 0;
+}
+
+int Sum(int a, int b){
+  int result = a + b;
+  return result;
+}
+</pre></code>
+<p>
+	you may notice that inside of the parethesis on the first line of the function I have included the initialization of 2 integer variables. This the place we create our parameters. When you include this with the definition of our function it tells the compiler that whenever you want to call <span><code>Sum</code></span> you must include 2 integers to pass into it. It is also important that you add the parameters to your declaration before the main function as well.
+</p>
+</div>
+</br>
+</html>

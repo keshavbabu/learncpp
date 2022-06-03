@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/stylesheets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</head>
+</br>
+<div class="ui raised very padded text container segment">
+<a href="/" class="ui icon button">
+	 <i class="home icon"></i>
+</a>
+<h1 class="title">Operators</h1>
+	<p>In this section you will learn about the different types of operators and how to use them</p>
+<div class="ui horizontal divider">Mathematical Operators</div>
+<table class="ui small unstackable table">
+		<thead>
+			<tr>
+				<th>Operator</th>
+				<th>Action</th>
+				<th>Example Usage</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><span><code>+</code></span></td>
+				<td>Addition</td>
+				<td><span><code>10 + 10 = 20</span></code></td>
+			</tr>
+			<tr>
+				<td><span><code>-</code></span></td>
+				<td>Subtraction</td>
+				<td><span><code>25 - 5 = 20</span></code></td>
+			</tr>
+			<tr>
+				<td><span><code>*</code></span></td>
+				<td>Multiplication</td>
+				<td><span><code>3 * 2 = 6</span></code></td>
+			</tr>
+			<tr>
+				<td><span><code>/</code></span></td>
+				<td>Division</td>
+				<td><span><code>10 / 5 = 2</span></code></td>
+			</tr>
+			<tr>
+				<td><span><code>%</code></span></td>
+				<td>Division Remainder (Modulo)</td>
+				<td><span><code>11 % 5 = 1</span></code></td>
+			</tr>
+		</tbody>
+	</table>
+<p>
+	These are some very obvious examples of operators that you most likely have seen before with the exception of maybe the modulo operator.
+</p>
+<p>
+	In addition to these operators, we also have incrementation and decrementation operators:
+</p>
+<table class="ui small unstackable table">
+		<thead>
+			<tr>
+				<th>Operator</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><span><code>++</code></span></td>
+				<td>Increment by 1</td>
+			</tr>
+			<tr>
+				<td><span><code>--</code></span></td>
+				<td>Decrement by 1</td>
+			</tr>
+		</tbody>
+	</table>
+	<pre><code>int a = 10;
+a++; // a is equal to 11
+a--; // a is equal to 10 again</pre></code>
+<div class="ui horizontal divider">Assignment Operators</div>
+<p>
+	There are operators that allow us to make an operation to a variable with its value and then reassign it to the same variable
+</p>
+<table class="ui small unstackable table">
+		<thead>
+			<tr>
+				<th>Operator</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><span><code>=</code></span></td>
+				<td>Assign</td>
+			</tr>
+			<tr>
+				<td><span><code>+=</code></span></td>
+				<td>Add and assign result</td>
+			</tr>
+			<tr>
+				<td><span><code>-=</code></span></td>
+				<td>Subtract and assign result</td>
+			</tr>
+			<tr>
+				<td><span><code>*=</code></span></td>
+				<td>Multiply and assign result</td>
+			</tr>
+			<tr>
+				<td><span><code>/=</code></span></td>
+				<td>Divide and assign result</td>
+			</tr>
+			<tr>
+				<td><span><code>%=</code></span></td>
+				<td>Modulo and assign result</td>
+			</tr>
+		</tbody>
+	</table>
+<pre><code>int x = 10;
+int y = 5;
+x += y; // x is now 15 (10 + 5 = 15)
+x -= y; // x is back to 10 (15 - 5 = 10)
+x *= y; // x is now 50 (10 * 5 = 50)
+x /= y; // x is back to 10 (50 / 5 = 10)
+x %= y; // x is now 0 (remainder of 10 / 5 is zero)
+// note: y never changes througout this program</pre></code>
+<div class="ui horizontal divider">Relational Operators</div>
+<p>
+	This next set of operators are for comparisons. When you have 2 data values and you want to compare them together
+</p>
+<table class="ui small unstackable table">
+		<thead>
+			<tr>
+				<th>Operator</th>
+				<th>Checks for</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><span><code>==</code></span></td>
+				<td>Equality</td>
+			</tr>
+			<tr>
+				<td><span><code>!=</code></span></td>
+				<td>Non equality</td>
+			</tr>
+			<tr>
+				<td><span><code>&gt;</code></span></td>
+				<td>Greater than</td>
+			</tr>
+			<tr>
+				<td><span><code>&lt;</code></span></td>
+				<td>Less than</td>
+			</tr>
+			<tr>
+				<td><span><code>&gt;=</code></span></td>
+				<td>Greater than or equality</td>
+			</tr>
+			<tr>
+				<td><span><code>&lt;=</code></span></td>
+				<td>Less than or Equality</td>
+			</tr>
+		</tbody>
+	</table>
+<div class="ui horizontal divider">Logical Operators</div>
+<p>
+	These operators check what the select expressions evaluate to and evaluate themselves to either true or false
+</p>
+<table class="ui small unstackable table">
+		<thead>
+			<tr>
+				<th>Operator</th>
+				<th>Checks for</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><span><code>&amp;&amp;</code></span></td>
+				<td>Both expressions to be true</td>
+			</tr>
+			<tr>
+				<td><span><code>||</code></span></td>
+				<td>At least 1 of the expressions to evaluate to true</td>
+			</tr>
+			<tr>
+				<td><span><code>!</code></span></td>
+				<td>the opposite of the expression</td>
+			</tr>
+		</tbody>
+	</table>
+<div class="ui horizontal divider">About Operators</div>
+<p>
+	Operators are a very big part of programming because they are how we interact with data. These operators are in addition to the <span><code>&lt;&lt;</code></span> and <span><code>&gt;&gt;</code></span> operators that we discussed in past sections.
+</p>
+</div>
+</br>
+</html>
