@@ -1,56 +1,101 @@
-<!DOCTYPE html> <html> <head> <link rel="stylesheet" 
-href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"> <link rel="stylesheet" 
-href="/stylesheets/style.css"> <script 
-src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script> </head> </br> <div class="ui 
-raised very padded text container segment"> <a href="/" class="ui icon button">
-	 <i class="home icon"></i> </a> <h1 class="title">Loops</h1> <p>In this section you will learn how to make a 
-	loop that repeats a block of code while a certain condition is true.</p>
-<div class="ui horizontal divider">While</div> <p> The most basic type of loop is a while loop. When constructing it 
-  you will need 2 things:
-</p> <div class="ui bulleted list"> <div class="item">Condition</div> <div class="item">Code</div> </div> <p> Lets 
-  try it out:
-</p> <pre><code>#include &lt;iostream&gt;
+<!DOCTYPE html>
+
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/stylesheets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</head>
+</br>
+<div class="ui raised very padded text container segment">
+<a href="/" class="ui icon button">
+	 <i class="home icon"></i>
+</a>
+<h1 class="title">Loops</h1>
+	<p>In this section you will learn how to make a loop that repeats a block of code while a certain condition is true.</p>
+<div class="ui horizontal divider">While</div>
+<p>
+  The most basic type of loop is a while loop. When constructing it you will need 2 things:
+</p>
+<div class="ui bulleted list">
+  <div class="item">Condition</div>
+  <div class="item">Code</div>
+</div>
+<p>
+  Lets try it out:
+</p>
+<pre><code>#include &lt;iostream&gt;
 	
-int main(){ int x = 0; while(x<=10){ std::cout << x << std::endl; x++;
+int main(){
+  int x = 0;
+  while(x<=10){
+    std::cout << x << std::endl;
+    x++;
   }
   return 0;
 }</code></pre>
-<p> In this example our condition is <span><code>x<=10</code></span> and our code is everything between the 
-  <span><code>{}</code></span>. The while loop will first check if the condition evaluates to true (which it will 
-  since x is intialized with 0) and then it will run the code. This process will continue to repeat until the 
-  condition evaluates to false. Since we keep adding 1 to x everytime the loop is run it will eventually evaluate to 
-  false after it is ran 10 times.
-</p> <div class="ui horizontal divider">Do While</div> <p> This loop is very similar to the while loop with 1 
-  difference: it will execute the body <b>before</b> checking if the condition evaluates to true. Let's explore the 
-  difference:
-</p> <pre><code>#include &lt;iostream&gt;
+<p>
+  In this example our condition is <span><code>x<=10</code></span> and our code is everything between the <span><code>{}</code></span>. The while loop will first check if the condition evaluates to true (which it will since x is intialized with 0) and then it will run the code. This process will continue to repeat until the condition evaluates to false. Since we keep adding 1 to x everytime the loop is run it will eventually evaluate to false after it is ran 10 times.
+</p>
+<div class="ui horizontal divider">Do While</div>
+<p>
+  This loop is very similar to the while loop with 1 difference: it will execute the body <b>before</b> checking if the condition evaluates to true. Let's explore the difference:
+</p>
+<pre><code>#include &lt;iostream&gt;
 	
-int main(){ int x = 11; while(x<=10){ std::cout << x << std::endl; x++;
+int main(){
+  int x = 11;
+  while(x<=10){
+    std::cout << x << std::endl;
+    x++;
   }
   return 0;
 }</code></pre>
-<p> The above code will not print anything. This is because since x is initialized with the value 11 the while loop 
-  checks if 11 <= 10 which is false, and then doesn't run the code inside it.
-</p> <p> Let's try it in a Do While loop: </p> <pre><code>#include &lt;iostream&gt;
+<p>
+  The above code will not print anything. This is because since x is initialized with the value 11 the while loop checks if 11 <= 10 which is false, and then doesn't run the code inside it.
+</p>
+<p>
+  Let's try it in a Do While loop:
+</p>
+<pre><code>#include &lt;iostream&gt;
 	
-int main(){ int x = 11; do{ std::cout << x << std::endl; x++;
+int main(){
+  int x = 11;
+  do{
+    std::cout << x << std::endl;
+    x++;
   }while(x<=10);
   return 0;
 }</code></pre>
-<p> The above code will print out the number 11. This is because the Do While loop first executes the body and 
-  checks the condition after. Once the condition is checked it will break out of the loop since 11 <= 10 evaluates 
-  to false.
-</p> <div class="ui horizontal divider">For</div> <p> For loops are a very useful type of loop and will probably be 
-  the loop that is used the most often.
-</p> <p> There are 4 parts to a For loop: </p> <div class="ui bulleted list"> <div class="item">initializer</div> 
-  <div class="item">condition</div> <div class="item">incrementor</div>
-</div> <p> Let's explore how to build a For loop: </p> <pre><code>#include &lt;iostream&gt;
+<p>
+  The above code will print out the number 11. This is because the Do While loop first executes the body and checks the condition after. Once the condition is checked it will break out of the loop since 11 <= 10 evaluates to false.
+</p>
+<div class="ui horizontal divider">For</div>
+<p>
+  For loops are a very useful type of loop and will probably be the loop that is used the most often.
+</p>
+<p>
+  There are 4 parts to a For loop:
+</p>
+<div class="ui bulleted list">
+  <div class="item">initializer</div>
+  <div class="item">condition</div>
+  <div class="item">incrementor</div>
+</div>
+<p>
+  Let's explore how to build a For loop:
+</p>
+<pre><code>#include &lt;iostream&gt;
 	
-int main(){ for(int i = 0; i <= 10; i++){ std::cout << i << std::endl;
+int main(){
+  for(int i = 0; i <= 10; i++){
+    std::cout << i << std::endl;
   }
   return 0;
 }</code></pre>
-<p> The initializer creates a variable named i and assigned it the value of 0. This runs only 1 time at the 
-  beginning of the loop. The condition checks if i is less than or equal to 10. This is checked on every execution 
-  of the code. the incrementor adds 1 to the variable i. This is also executed on every execution of the code.
-</p> </div> </br> </html>
+<p>
+  The initializer creates a variable named i and assigned it the value of 0. This runs only 1 time at the beginning of the loop. The condition checks if i is less than or equal to 10. This is checked on every execution of the code. the incrementor adds 1 to the variable i. This is also executed on every execution of the code.
+</p>
+</div>
+</br>
+</html>
