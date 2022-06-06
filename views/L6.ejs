@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/stylesheets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</head>
+</br>
+<div class="ui raised very padded text container segment">
+<a href="/" class="ui icon button">
+	 <i class="home icon"></i>
+</a>
+<h1 class="title">References and Pointers</h1>
+	<p>In this section you will learn how to use pointers and references and how they work</p>
+<div class="ui horizontal divider">How is Memory Stored?</div>
+<p>
+	We previously covered how to store data into variables. When you create any type of variable the computer gives it an <span class="tooltip" style="color:red" data-tooltip="Where the variable is stored in memory and where the computer needs to go to find the value of that variable" data-position="top right">address</span>. Think of an address like your home address. If somebody wants to meet you need to give them an address of where you're located. The same thing is done by the compiler to allow us to be able to store and get the value of variables.
+</p>
+<p>
+	To better explain how pointers and references work we will be using this type of table:
+</p>
+<table class="ui small unstackable table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Address</th>
+				<th>Value</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>x</td>
+				<td>int</td>
+				<td>0xffffdd58</td>
+				<td>10</td>
+			</tr>
+		</tbody>
+	</table>
+<div class="ui horizontal divider">References</div>
+<p>
+	A reference is a way to refer to a variable with a different name. It acts exactly the same as the original variable and holds the same value as well. Let's look at how it is stored:
+</p>
+<table class="ui small unstackable table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Address</th>
+				<th>Value</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>x</td>
+				<td>int</td>
+				<td>0xffffdd58</td>
+				<td>10</td>
+			</tr>
+			<tr>
+				<td>y</td>
+				<td>int&amp;</td>
+				<td>0xffffdd58</td>
+				<td>10</td>
+			</tr>
+		</tbody>
+	</table>
+<p>
+	Our new variable <span><code>y</code></span> has exactly the same value as the variable x. But it is important to know that we did not simply make a copy of the variable x. If you look at the address of both the variables, you will notice that they are exactly the same. While they have different names, both variables point to the address so they both will hold the value that is at that address.
+</p>
+<p>
+	Another thing to notice is that if two variables point at the same address, they will <b>always</b> hold the same value. You can set y to a different number: <span><code>y = 12;</code></span> and if we look at our table again:
+</p>
+<table class="ui small unstackable table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Address</th>
+				<th>Value</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>x</td>
+				<td>int</td>
+				<td>0xffffdd58</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>y</td>
+				<td>int&amp;</td>
+				<td>0xffffdd58</td>
+				<td>12</td>
+			</tr>
+		</tbody>
+	</table>
+<p>
+	Both x and y now hold the value 12. This is because we changed the value at the address of which both variables point to.
+</p>
+<p>
+	Let's use a reference in a program:
+</p>
+<pre><code>#include &lt;iostream&gt;
+	
+int main(){
+  int x = 0;
+  int &amp;y = x;
+  std::cout << x << std::endl;
+  y = 10;
+  std::cout << x << std::endl;
+  return 0;
+}</code></pre>
+<p>
+	when we run our program it will print out the number 0 followed by the number 10. Without ever setting a different value to the variable x we are able to change it's value.
+</p>
+<div class="ui horizontal divider">Pointers</div>
+<p>
+	A Pointer "points" at an address. When creating a pointer it has a completely unique address for itself but its value is the address of what it points at. Let's look at our table after we create a pointer that is pointing at the variable <span><code>x</code></span>:
+</p>
+<table class="ui small unstackable table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Address</th>
+				<th>Value</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>x</td>
+				<td>int</td>
+				<td>0xffffdd58</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>y</td>
+				<td>int&amp;</td>
+				<td>0xffffdd58</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>z</td>
+				<td>int*</td>
+				<td>0xffffdd54</td>
+				<td>0xffffdd58</td>
+			</tr>
+		</tbody>
+	</table>
+<p>
+	You will notice that the value of the pointer <span><code>z</code></span> is the address of the variable <span><code>x</code></span>.
+</p>
+<p>
+	Let's add a pointer to our program:
+</p>
+<pre><code>#include &lt;iostream&gt;
+	
+int main(){
+  int x = 0;
+  int &amp;y = x;
+  int *z = &amp;x;
+  std::cout << x << std::endl;
+  y = 10;
+  std::cout << x << std::endl;
+  std::cout << z << " with value of " << *z << std::endl;
+  return 0;
+}</code></pre>
+<p>
+	When putting a <span><code>&amp;</code></span> before a variable you are telling the compiler to return the address of the variable. When creating the pointer you need to assign the value to the address of the variable you want it to point to. This is why we put a <span><code>&amp;</code></span> before it. This returns the address of the variable and then assigns it to the value of the pointer.
+</p>
+<p>
+	Another function of a pointer is <span class="tooltip" style="color:red" data-tooltip="Returning the value of the address that the pointer points at" data-position="top center">dereferencing</span>. This is done by putting a <span><code>*</code></span> before the variable. In the program when we dereferenced the variable z it returned the value of the variable x. Again, this is not a copy. If you change the value that is at the address of x the dereferenced value of z will return the changed value.
+</p>
+</div>
+</br>
+</html>
