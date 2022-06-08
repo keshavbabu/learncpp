@@ -173,6 +173,47 @@ int main(){
 <p>
 	Another function of a pointer is <span class="tooltip" style="color:red" data-tooltip="Returning the value of the address that the pointer points at" data-position="top center">dereferencing</span>. This is done by putting a <span><code>*</code></span> before the variable. In the program when we dereferenced the variable z it returned the value of the variable x. Again, this is not a copy. If you change the value that is at the address of x the dereferenced value of z will return the changed value.
 </p>
+<div class="ui horizontal divider">Use With Functions</div>
+<p>
+	References and pointers also have some very useful functionality when used with functions. A very important aspect of references is that it avoids making a copy of the variable. This means that it takes up less space in memory. When programming with C++ it is important to be mindful of the amount of memory that your program is using and to make optimizations where possible. One way we can optimize the amount of memory that our program uses is using references as our parameters in functions.
+</p>
+<pre><code>#include &lt;iostream&gt;
+	
+int Sum(int &amp;x, int &amp;y);
+	
+int main(){
+  int x = 5;
+  int y = 10;
+  std::cout << Sum(x, y) << std::endl;
+  return 0;
+}
+int Sum(int &amp;x, int &amp;y){
+  return x+y;
+}</code></pre>
+<p>
+	Initializing our parameters as references is a very easy way to save memory. However there are other things we can do with them. Since the reference points to the original variable we can modify the variable in place.
+</p>
+<pre><code>#include &lt;iostream&gt;
+
+void Swap(int &amp;x, int &amp;y);
+	
+int main(){
+  int x = 5;
+  int y = 10;
+  Swap(x, y);
+  std::cout << x << " and " << y << std::endl;
+  return 0;
+}
+
+void Swap(int &amp;x, int &amp;y){
+  int temp;
+  temp = y;
+  y = x;
+  x = temp;
+}</code></pre>
+<p>
+	You can see that the <span><code>Swap</code></span> function doesn't return any value but our x and y values are swapped. This is because, since we passed those variables by pointer, when we edit those variables inside of our function the value of the variables in our main function will be changed as well.
+</p>
 </div>
 </br>
 </html>
