@@ -11,11 +11,36 @@
 <a href="/" class="ui icon button">
 	 <i class="home icon"></i>
 </a>
-<h1 class="title"></h1>
-	<p>In this section you will learn </p>
-<div class="ui horizontal divider">Section One</div>
-<div class="ui horizontal divider">Section Two</div>
-<div class="ui horizontal divider">Section Three</div>
+<h1 class="title">Overloading</h1>
+	<p>In this section you will learn how to overload functions</p>
+<div class="ui horizontal divider">Why</div>
+<p>
+	Our <span><code>Sum</code></span> function takes in two numbers and adds them together. An integar is not the only type that holds a number however. What if we want our function to work for a double as well. This can be done through overloading. Overloading is used to have a function have different types of inputs but still have its intended use. Just because we want to add 2 doubles together doesn't mean it's not still called a sum so we need to make our function work for another type.
+</p>
+<div class="ui horizontal divider">Usage</div>
+<p>
+	Let's make our <span><code>Sum</code></span> function work with doubles:
+</p>
+<pre><code>#include &lt;iostream&gt;
+	
+int Sum(int const &amp;x, int const &amp;y);
+double Sum(double const &amp;x, double const &amp;y);
+	
+int main(){
+  std::cout << Sum(5, 10) << std::endl;
+  std::cout << Sum(2.5, 7.5) << std::endl;
+  return 0;
+}
+int Sum(int const &amp;x, int const &amp;y){
+  return x+y;
+}
+
+double Sum(double const &amp;x, double const &amp;y){
+  return x+y;
+}</code></pre>
+<p>
+	All we had to do was make another function with the same name that took in doubles and returned a double. When you call it, the compiler will find the function that matches the arguments that you gave it and run that corresponding function.
+</p>
 </div>
 </br>
 </html>

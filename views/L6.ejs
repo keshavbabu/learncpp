@@ -214,6 +214,49 @@ void Swap(int &amp;x, int &amp;y){
 <p>
 	You can see that the <span><code>Swap</code></span> function doesn't return any value but our x and y values are swapped. This is because, since we passed those variables by pointer, when we edit those variables inside of our function the value of the variables in our main function will be changed as well.
 </p>
+<div class="ui horizontal divider">Constants</div>
+<p>
+	One more modifier you can use for your variables is <span><code>const</code></span> or constant. When you say that a variable is constant you may not ever change the value of that variable: </br><span><code>const int x = 10;</code></span> After setting the value of 10 to the variable x you may never change it. This would cause an error: <span><code>x = 11;</code></span>
+</p>
+<p>
+	Another place we can use constants is in the parameters of a function. One reason you would use a constant in the parameter is for security. It is expected that if you dont intend to modify a certain variable in a function that you say that it is constant.
+</p>
+
+<pre><code>#include &lt;iostream&gt;
+
+int Sum(int const &amp;x, int const &amp;y);
+	
+int main(){
+  int x = 5;
+  int y = 10;
+  std::cout << Sum(x, y) << std::endl;
+  return 0;
+}
+
+int Sum(int const &amp;x, int const &amp;y){
+  return x+y;
+}</code></pre>
+<p>
+	Since we never modify the values of the 2 variables, we can say that they are constant.
+</p>
+<p>
+	Another case that we would use a constant in the parameters of a function is when you want to allow the passing of a <span class="tooltip" style="color:red" data-tooltip="The actual data not a variable holding the data. 4 is a literal but int x = 4; makes x a variable" data-position="top center">literal</span>. This is because, when you make your parameters a reference, you are trying to find an address for them and a literal does not have an address and also cannot be changed. Casting them as constant tells the compiler that you wont try and change them which then allows you to keep the parameter as reference and allow passing as literals.
+</p>
+<pre><code>#include &lt;iostream&gt;
+
+int Sum(int const &amp;x, int const &amp;y);
+	
+int main(){
+  std::cout << Sum(5, 10) << std::endl;
+  return 0;
+}
+
+int Sum(int const &amp;x, int const &amp;y){
+  return x+y;
+}</code></pre>
+<p>
+	Since we are passing the literals 5 and 10 we need to make the parameters constant. This allows us to save space still by taking the reference and still allow passing literals into our function.
+</p>
 </div>
 </br>
 </html>
