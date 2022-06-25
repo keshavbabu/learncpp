@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/stylesheets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</head>
+</br>
+<div class="ui raised very padded text container segment">
+<a href="/" class="ui icon button">
+	 <i class="home icon"></i>
+</a>
+<h1 class="title">Templates</h1>
+	<p>In this section you will learn how to create a template</p>
+<div class="ui horizontal divider">What</div>
+<p>
+	A template is the information required to create a function. When it is called with a specified type, a function is created that does exactly what the template says except for the type is altered so that it works for that specific call.
+</p>
+<div class="ui horizontal divider">Usage</div>
+<p>
+	Let's improve on our overloaded functions from the last section and make a template that can take any type.
+</p>
+<pre><code>#include &lt;iostream&gt;
+	
+template &lt;typename T&gt;
+T sum(T first, T second);
+
+int main(){
+    std::cout << sum(1.0, 2.0);
+    return 0;
+}
+
+
+template &lt;typename T&gt;
+T sum(T first, T second){
+    return first + second;
+}</code></pre>
+<p>
+	We being our template with the line: <span><code>template &lt;typename T&gt;</span></code> Where T is what we use as the placeholder for the type. Once we define that a function is a template we can replace any instance of the specified type with T and it will be filled in with the proper type when the function is created.
+</p>
+<div class="ui horizontal divider">Why</div>
+<p>
+	If you compare the code from above to the code in the previous section you will see that instead of having to create a type for both type double and int we can define a single template that will work for both.
+</p>
+<p>
+	Not only does this template perfectly replace the types int and double but it also covers all types that can be added to itself. This massively decreases the amount of overloaded functions we would have to define in order to get this kind of coverage. 
+</p>
+</div>
+</br>
+</html>
