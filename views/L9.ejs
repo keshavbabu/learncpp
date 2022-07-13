@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/stylesheets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</head>
+</br>
+<div class="ui raised very padded text container segment">
+<a href="/" class="ui icon button">
+	 <i class="home icon"></i>
+</a>
+<h1 class="title">Vectors</h1>
+	<p>In this section you will learn about vectors and how to use them.</p>
+<div class="ui horizontal divider">Why Not Arrays?</div>
+<p>
+	Vectors are very helpful in C++ programming because they take care of a lot of things automatically that arrays would not. Some of the things that vectors can do:	
+	<ul>
+		<li>Vectors are resizable - When dealing with arrays you need to define the size of the array when creating it. Vectors grow and shrink as you add and remove items from them.</li>
+		<li>Vectors store their size - Finding the size of an arrays that are allocated in different ways (statically, dynamically, etc) can sometimes be an issue. Vectors always store their size and can be reteived in O(1) time</li>
+	</ul>
+	There are many more things that differ arrays and vectors but these are the things that will noticably make your experience programming with them significantly easier.
+</p>
+<div class="ui horizontal divider">Using Vectors</div>
+<p>
+	Vectors store a list of items that all have the same type. Let's say that we want to store a set of 10 numbers:
+</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+int main(){
+    std::vector&lt;int&gt; numbers = {1, 5, 7, 3, 7, 3, 8, 9, 3, 5};
+    return 0;
+}
+
+</code></pre>
+<p>
+	What if we want to print every element inside of the vector in order. To do this we use a for loop and before we look at how we do so we need to look at <span><code>static_cast</code></span>. We are going to use this to convert a value to an int. The reason we need this is because when we call the vector and as it for its size it will return it in the type <span><code>size_t</code></span>. This is an unsigned integer. You will see when we make our for loop that we will be comapring this to a normal int so we must ensure that we convert it using <span><code>static_cast</code></span> and then do the comparison.
+</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+int main(){
+    std::vector&lt;int&gt; numbers = {1, 5, 7, 3, 7, 3, 8, 9, 3, 5};
+	for(int i = 0;i < static_cast&lt;int&gt;(numbers.size());i++){
+		std::cout << numbers[i] << std::endl;
+	}
+    return 0;
+}
+
+</code></pre>
+<p>
+	Let's unpack it:
+	<ul>
+		<li>We create an integer named i and set it to zero on the first loop through</li>
+		<li>Every loop we check that i is less than the size of the vector converted to an int</li>
+		<li>Every loop we add 1 to i</li>
+	</ul>
+	Inside the for loop we print the value at index of i in the vectors array to the output stream. Remember, vectors start at 0.
+</p>
+<p>
+	This type of loop is very beneficial when you want to perform an operation on every item inside of a vector.
+</p>
+<p>
+	This type of loop can help us to create useful functions for our vectors.
+</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+int Sum(std::vector&lt;int&gt; vec){
+	int sum;
+	for(int i = 0;i < static_cast&lt;int&gt;(vec.size());i++){
+		sum += vec[i];
+	}
+	return sum;
+}
+
+int main(){
+    std::vector&lt;int&gt; numbers = {1, 5, 7, 3, 7, 3, 8, 9, 3, 5};
+    return 0;
+}
+
+</code></pre>
+<p>
+	This is a function that sums up all the integers in the array and returns the result. Many functions like this are so simply because vectors are so easy to work with.
+</p>
+</div>
+</br>
+</html>
